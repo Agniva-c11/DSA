@@ -22,7 +22,7 @@ int main()
 
     char *c = &ch[0];
     cout<<c<<endl;    //Prints the entire array
-    cout<<*c<<endl;
+    cout<<*c<<endl;   //Prints the first character
 
 
 }

@@ -1,24 +1,41 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
-int main()
+
+// Corrected function with 2D array as parameter
+string findpath(int arr[][4], int n)
 {
-    int n = 4;
-    int arr[n][n];
+    string ans;
+    int srcx = 0;
+    int srcy = 0;
 
-    for(int i = 0;i<n;i++)                      //up = (x-1, y)
-    {                                           //down = (x+1, y)
-        for(int j = 0;j<n;j++)                  //left = (x, y-1)
-        {                                       //right = (x, y+1)                
-            cin>>arr[i][j];
-        }
-    }
-
+    int visited[4][4];
     for(int i = 0;i<n;i++)
     {
         for(int j = 0;j<n;j++)
         {
-            cout<<arr[i][j]<<" ";
+            visited[i][j] = 0;
         }
-        cout<<endl;
     }
+}
+
+int main()
+{
+    int n = 4;
+    int arr[4][4];
+
+    // Input the 2D array
+    for (int i = 0; i < n; i++)                      
+    {                                           
+        for (int j = 0; j < n; j++)                  
+        {                                                       
+            cin >> arr[i][j];
+        }
+    }
+
+    // Call the function and print the result
+    string result = findpath(arr, n);
+    cout << result << endl;
+
+    return 0;
 }
