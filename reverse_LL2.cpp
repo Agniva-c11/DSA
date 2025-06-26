@@ -66,7 +66,7 @@ int main()
     Node* prev = NULL;
     reverse_LL(head, curr, prev);
 
-    print(head);
+    print(head);  
 
 
 

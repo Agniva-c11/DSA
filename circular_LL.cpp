@@ -62,6 +62,34 @@ void print(Node* &tail)
         tail = tail -> next;
     }
 }
+
+// Deletion
+void deleteNode(Node* &tail, int value)
+{
+    // Empty list
+    if(tail == NULL)
+    {
+        cout << "List is empty";
+        return;
+    }
+    else
+    {
+        Node* prev = tail;
+        Node* curr = prev -> next;
+
+        while(curr-> data != value)
+        {
+            prev = curr;
+            curr = curr -> next;
+        }
+
+        prev -> next = curr -> next;
+        curr -> next = NULL;
+        delete curr; 
+    }
+
+
+}
 int main()
 {
     Node* tail = NULL;
