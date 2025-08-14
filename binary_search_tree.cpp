@@ -12,42 +12,38 @@ class Node
     {
         this->data = data;
         this->left = NULL;
-        this->right = NULL;
+        this ->right = NULL;
     }
 };
-
-Node* insertBST(Node* &root, int data)
+Node* createBST(Node* &root, int data)
 {
-    if(root==NULL)
+    if(root == NULL)
     {
         root = new Node(data);
         return root;
     }
 
-    if(data>root->data)
+    if(data > root->data)
     {
-        root->right = insertBST(root->right, data);
+        createBST(root->right, data);
     }
     else
     {
-        root->left = insertBST(root->left, data);
+        createBST(root->left, data);
     }
-
     return root;
 }
-
-void takeinput(Node* &root)
+void takeinput(Node* & root)
 {
     int data;
     cin>>data;
 
-    while(data!=-1)
+    while(data != -1)
     {
-        root = insertBST(root, data);
+        createBST(root, data);
         cin>>data;
     }
 }
-
 void levelordertraversal(Node* &root)
 {
     if(root==NULL)
@@ -87,20 +83,20 @@ void levelordertraversal(Node* &root)
     }
 }
 
-Node* minValue(Node* &root)
+Node* minval(Node* &root)
 {
     Node* temp = root;
-    while(temp->left != NULL)
+    while(temp->left)
     {
         temp = temp->left;
     }
     return temp;
 }
 
-Node* maxValue(Node* &root)
+Node* maxval(Node* &root)
 {
     Node* temp = root;
-    while(temp->right != NULL)
+    while(temp->right)
     {
         temp = temp->right;
     }
@@ -111,8 +107,7 @@ int main()
     Node* root = NULL;
     takeinput(root);
     levelordertraversal(root);
-    Node* mini = minValue(root);
-    cout<<"Minimum value in BST:"<<mini->data<<endl;
-    Node* maxi = maxValue(root);
-    cout<<"Maximum value in BST:"<<maxi->data<<endl;
+    cout<<"Min value is:"<<minval(root)->data<<endl;
+    cout<<"Max value is:"<<maxval(root)->data<<endl;
+
 }
